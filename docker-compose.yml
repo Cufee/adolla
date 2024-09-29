@@ -1,0 +1,14 @@
+services:
+  adolla:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ${DATA_DIR}:~/.adolla
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
